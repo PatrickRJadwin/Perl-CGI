@@ -32,6 +32,7 @@ if ( scalar @icecream < 1 ) {
     exit(0);
 }
 
+my @orderarr;
 foreach my $i (@icecream) {
     my $ismatch = 0;
     foreach my $x (@arr) {
@@ -44,7 +45,8 @@ foreach my $i (@icecream) {
         exit(0);
     }
     $subtotal += $price;
-    print $i . ":\t\t\$" . $price . "<br>";
+    my $order = $i . ":\t\t\$" . $price . "<br>";
+    push @orderarr, $order
 }
 
 print "<font size = 4>";
@@ -53,6 +55,10 @@ print "</font>";
 print "<br> Street Address: " . $street . "<br> Phone Number: " . $phno . "<br><br>";
 print "<font size = 4><b>Please review your order:</b></font><br>";
 print "<pre>";
+
+foreach my $i (@orderarr) {
+    print $i;
+}
 
 print "</pre><pre><font size = 4>";
 
